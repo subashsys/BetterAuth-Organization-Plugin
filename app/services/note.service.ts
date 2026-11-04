@@ -1,5 +1,5 @@
-import { db } from "@/lib/db";
-import type { Note } from "@/models/note";
+import { db } from "@/app/lib/db";
+import type { Note } from "@/app/models/note";
 import { ObjectId } from "mongodb";
 
 const notes = db.collection<Note>("notes");

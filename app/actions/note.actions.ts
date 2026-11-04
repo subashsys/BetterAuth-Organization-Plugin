@@ -2,10 +2,10 @@
 
 import { revalidatePath } from "next/cache";
 import { ObjectId } from "mongodb";
-import { getSession } from "@/lib/session";
-import { db } from "@/lib/db";
-import { createNote, deleteNote } from "@/services/note.service";
-import { validateNoteContent } from "@/validations/note.schema";
+import { getSession } from "@/app/lib/session";
+import { db } from "@/app/lib/db";
+import { createNote, deleteNote } from "@/app/services/note.service";
+import { validateNoteContent } from "@/app/validations/note.schema";
 
 export async function createNoteAction(formData: FormData) {
   const session = await getSession();

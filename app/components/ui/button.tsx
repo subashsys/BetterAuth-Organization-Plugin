@@ -5,9 +5,9 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const variants = {
-  primary: "bg-gray-900 text-white rounded px-3 py-2 text-sm",
-  secondary: "border border-gray-300 rounded px-3 py-2 text-sm",
-  "danger-text": "text-red-600 rounded px-3 py-2 text-sm",
+  primary: "px-4 py-2 text-sm rounded bg-gray-900 text-white",
+  secondary: "px-4 py-2 text-sm rounded border border-gray-300",
+  "danger-text": "text-sm text-red-600",
 };
 
 export function Button({ variant = "primary", className = "", ...props }: Props) {

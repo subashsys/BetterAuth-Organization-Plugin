@@ -32,10 +32,10 @@ export default function SignupPage() {
     }
   )}
   return (
-    <main className="max-w-2xl mx-auto p-6">
-      <div className="mx-auto w-full max-w-sm mt-16">
-        <h1 className="text-xl font-semibold">Sign up</h1>
-        <form className="mt-4 flex flex-col gap-3" onSubmit={handleSubmit}>
+    <main className="max-w-2xl mx-auto px-4 py-8">
+      <div className="max-w-sm mx-auto mt-16">
+        <h1 className="text-xl font-semibold mb-6">Sign up</h1>
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <Input
             type="text"
             name="name"
@@ -63,7 +63,7 @@ export default function SignupPage() {
           />
           <Button type="submit" >Sign up</Button>
         </form>
-        <p className="text-sm text-gray-500 mt-4">
+        <p className="mt-6 text-sm text-gray-500">
           Already have an account?{" "}
           <Link href="/login" className="underline">
             Log in

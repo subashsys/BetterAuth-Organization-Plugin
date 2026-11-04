@@ -10,10 +10,12 @@ export default async function DashboardPage() {
 
   return (
     <AppShell>
-      <div className="flex flex-col gap-6">
-        <h1 className="text-xl font-semibold">Dashboard</h1>
-        <NoteForm />
-        <NoteList notes={notes} />
+      <div>
+        <h1 className="text-xl font-semibold mb-6">Dashboard</h1>
+        <div className="space-y-8">
+          <NoteForm />
+          <NoteList notes={notes} />
+        </div>
       </div>
     </AppShell>
   );

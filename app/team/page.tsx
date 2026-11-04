@@ -1,14 +1,16 @@
-import { InviteForm } from "@/components/team/invite-form";
-import { MemberList } from "@/components/team/member-list";
-import { AppShell } from "@/components/app-shell";
+import { InviteForm } from "@/app/components/team/invite-form";
+import { MemberList } from "@/app/components/team/member-list";
+import { AppShell } from "@/app/components/app-shell";
 
 export default function TeamPage() {
   return (
     <AppShell>
-      <div className="flex flex-col gap-6">
-        <h1 className="text-xl font-semibold">Team</h1>
+      <div>
+        <h1 className="text-xl font-semibold mb-6">Team</h1>
         <InviteForm />
-        <MemberList />
+        <div className="mt-8">
+          <MemberList />
+        </div>
       </div>
     </AppShell>
   );

@@ -28,10 +28,10 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="max-w-2xl mx-auto p-6">
-      <div className="mx-auto w-full max-w-sm mt-16">
-        <h1 className="text-xl font-semibold">Log in</h1>
-        <form className="mt-4 flex flex-col gap-3" onSubmit={handleSubmit}>
+    <main className="max-w-2xl mx-auto px-4 py-8">
+      <div className="max-w-sm mx-auto mt-16">
+        <h1 className="text-xl font-semibold mb-6">Log in</h1>
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <Input
             type="email"
             placeholder="Email address"
@@ -48,7 +48,7 @@ export default function LoginPage() {
             {loading ? "Logging in..." : "Log in"}
           </Button>
         </form>
-        <p className="text-sm text-gray-500 mt-4">
+        <p className="mt-6 text-sm text-gray-500">
           No account?{" "}
           <Link href="/signup" className="underline">
             Sign up

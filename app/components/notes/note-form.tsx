@@ -1,15 +1,11 @@
 import { createNoteAction } from "@/app/actions/note.actions";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/components/ui/button";
+import { Textarea } from "@/app/components/ui/input";
 
 export function NoteForm() {
   return (
-    <form action={createNoteAction} className="flex flex-col gap-2">
-      <textarea
-        name="content"
-        rows={3}
-        placeholder="Write a note..."
-        className="w-full border border-gray-300 rounded px-3 py-2 text-sm"
-      />
+    <form action={createNoteAction} className="space-y-3">
+      <Textarea name="content" placeholder="Write a note..." />
       <Button type="submit">Add note</Button>
     </form>
   );
