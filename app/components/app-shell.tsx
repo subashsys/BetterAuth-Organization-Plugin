@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Button } from "@/app/components/ui/button";
+import Signout from "../signout/page";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
+  
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
       <header className="flex items-center justify-between border-b border-gray-200 pb-4 mb-8">
@@ -14,9 +15,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             Team
           </Link>
         </div>
-        <Button type="button" variant="secondary">
-          Sign out
-        </Button>
+        <Signout/>
       </header>
       <main>{children}</main>
     </div>
