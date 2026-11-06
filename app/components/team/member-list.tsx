@@ -1,14 +1,19 @@
-import { getSession } from "@/app/lib/session";
-import { Button } from "@/app/components/ui/button";
-
-const members = [
-  { name: "Ada Lovelace", email: "ada@example.com", role: "admin" },
-  { name: "Alan Turing", email: "alan@example.com", role: "member" },
-  { name: "Grace Hopper", email: "grace@example.com", role: "member" },
-];
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import { auth } from "@/app/lib/auth";
 
 export async function MemberList() {
-  const session = await getSession();
+  const session = await auth.api.getSession({ headers: await headers() });
+  if (!session) redirect("/login");
+
+  // TEMP: until the organization plugin is added, the only member is the current user
+  const members = [
+    {
+      name: session.user.name,
+      email: session.user.email,
+      role: "owner",
+    },
+  ];
 
   return (
     <ul>
@@ -21,14 +26,7 @@ export async function MemberList() {
             <p className="text-sm">{member.name}</p>
             <p className="text-xs text-gray-500">{member.email}</p>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="text-xs text-gray-500">{member.role}</span>
-            {session.role === "admin" && (
-              <Button type="button" variant="danger-text">
-                Remove
-              </Button>
-            )}
-          </div>
+          <span className="text-xs text-gray-500">{member.role}</span>
         </li>
       ))}
     </ul>

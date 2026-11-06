@@ -1,12 +1,19 @@
-import { getSession } from "@/app/lib/session";
 import { listNotes } from "@/app/services/note.service";
 import { NoteForm } from "@/app/components/notes/note-form";
 import { NoteList } from "@/app/components/notes/note-list";
 import { AppShell } from "@/app/components/app-shell";
+import {auth} from "@/app/lib/auth"
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
-  const session = await getSession();
-  const notes = await listNotes(session.organizationId);
+  const session = await auth.api.getSession({
+    headers: await headers()
+  })
+  if(!session){
+    redirect("/login")
+  }
+  const notes = await listNotes(session.user.id);
 
   return (
     <AppShell>
